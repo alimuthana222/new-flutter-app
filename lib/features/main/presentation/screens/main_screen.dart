@@ -167,29 +167,55 @@ class ProfilePage extends StatelessWidget {
           
           // Menu Items
           ListTile(
-            leading: const Icon(Icons.edit_outlined),
+            leading: const Icon(Iconsax.edit),
             title: const Text(AppStrings.editProfile),
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-            onTap: () {},
+            onTap: () {
+              // TODO: Navigate to edit profile
+            },
           ),
           ListTile(
-            leading: const Icon(Icons.settings_outlined),
+            leading: const Icon(Iconsax.setting_2),
             title: const Text(AppStrings.settings),
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-            onTap: () {},
+            onTap: () => context.push('/settings'),
           ),
           const Divider(height: 32),
           ListTile(
-            leading: const Icon(Icons.logout, color: AppColors.error),
+            leading: const Icon(Iconsax.logout, color: AppColors.error),
             title: const Text(
               AppStrings.logout,
               style: TextStyle(color: AppColors.error),
             ),
             onTap: () async {
-              final prefs = await SharedPreferences.getInstance();
-              await prefs.setBool('is_logged_in', false);
-              if (context.mounted) {
-                context.go('/login');
+              final confirmed = await showDialog<bool>(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text(AppStrings.logout),
+                  content: const Text(AppStrings.logoutConfirm),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pop(false),
+                      child: const Text(AppStrings.cancel),
+                    ),
+                    ElevatedButton(
+                      onPressed: () => Navigator.of(context).pop(true),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.error,
+                        foregroundColor: Colors.white,
+                      ),
+                      child: const Text(AppStrings.logout),
+                    ),
+                  ],
+                ),
+              );
+
+              if (confirmed == true) {
+                final prefs = await SharedPreferences.getInstance();
+                await prefs.setBool('is_logged_in', false);
+                if (context.mounted) {
+                  context.go('/login');
+                }
               }
             },
           ),
