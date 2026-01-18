@@ -26,6 +26,8 @@ CREATE TYPE notification_type AS ENUM ('booking_request', 'booking_accepted', 'b
 
 CREATE TABLE users (
     id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+    -- Email is denormalized from auth.users for performance and RLS policy simplification
+    -- This avoids expensive joins in queries and allows simpler row-level security policies
     email VARCHAR(255) UNIQUE NOT NULL,
     phone VARCHAR(20),
     full_name VARCHAR(100) NOT NULL,
@@ -196,6 +198,9 @@ CREATE TABLE conversations (
     is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMPTZ DEFAULT NOW(),
     
+    -- Note: This ensures only one conversation per participant pair in one direction
+    -- Application logic should normalize (e.g., always put smaller UUID as participant_1)
+    -- to prevent duplicate conversations (A-B and B-A)
     UNIQUE(participant_1, participant_2)
 );
 

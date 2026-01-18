@@ -27,14 +27,14 @@ class ConnectivityService {
 
   void _updateConnectivityStatus(List<ConnectivityResult> result) {
     final isConnected = result.isNotEmpty && 
-                       result.first != ConnectivityResult.none;
+                       result.any((r) => r != ConnectivityResult.none);
     _connectivityController?.add(isConnected);
   }
 
   // Check current connectivity
   Future<bool> get isConnected async {
     final result = await _connectivity.checkConnectivity();
-    return result.isNotEmpty && result.first != ConnectivityResult.none;
+    return result.isNotEmpty && result.any((r) => r != ConnectivityResult.none);
   }
 
   // Dispose resources

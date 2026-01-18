@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:path/path.dart' as path;
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'supabase_service.dart';
 import '../config/supabase_config.dart';
@@ -8,48 +9,51 @@ class StorageService {
 
   // Upload avatar
   Future<String> uploadAvatar(File file, String userId) async {
-    final fileName = '$userId-${DateTime.now().millisecondsSinceEpoch}.jpg';
-    final path = 'avatars/$fileName';
+    final extension = path.extension(file.path);
+    final fileName = '$userId-${DateTime.now().millisecondsSinceEpoch}$extension';
+    final filePath = 'avatars/$fileName';
     
     await _storage
         .from(SupabaseConfig.avatarsBucket)
-        .upload(path, file);
+        .upload(filePath, file);
     
     return _storage
         .from(SupabaseConfig.avatarsBucket)
-        .getPublicUrl(path);
+        .getPublicUrl(filePath);
   }
 
   // Upload skill image
   Future<String> uploadSkillImage(File file, String skillId) async {
-    final fileName = '$skillId-${DateTime.now().millisecondsSinceEpoch}.jpg';
-    final path = 'skills/$fileName';
+    final extension = path.extension(file.path);
+    final fileName = '$skillId-${DateTime.now().millisecondsSinceEpoch}$extension';
+    final filePath = 'skills/$fileName';
     
     await _storage
         .from(SupabaseConfig.skillImagesBucket)
-        .upload(path, file);
+        .upload(filePath, file);
     
     return _storage
         .from(SupabaseConfig.skillImagesBucket)
-        .getPublicUrl(path);
+        .getPublicUrl(filePath);
   }
 
   // Upload receipt
   Future<String> uploadReceipt(File file, String orderId) async {
-    final fileName = '$orderId-${DateTime.now().millisecondsSinceEpoch}.jpg';
-    final path = 'receipts/$fileName';
+    final extension = path.extension(file.path);
+    final fileName = '$orderId-${DateTime.now().millisecondsSinceEpoch}$extension';
+    final filePath = 'receipts/$fileName';
     
     await _storage
         .from(SupabaseConfig.receiptsBucket)
-        .upload(path, file);
+        .upload(filePath, file);
     
     return _storage
         .from(SupabaseConfig.receiptsBucket)
-        .getPublicUrl(path);
+        .getPublicUrl(filePath);
   }
 
   // Delete file
-  Future<void> deleteFile(String bucket, String path) async {
-    await _storage.from(bucket).remove([path]);
+  Future<void> deleteFile(String bucket, String filePath) async {
+    await _storage.from(bucket).remove([filePath]);
   }
 }
