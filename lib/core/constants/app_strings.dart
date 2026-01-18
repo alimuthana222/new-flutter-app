@@ -18,6 +18,10 @@ abstract class AppStrings {
   static const String password = 'كلمة المرور';
   static const String confirmPassword = 'تأكيد كلمة المرور';
   static const String fullName = 'الاسم الكامل';
+  static const String phone = 'رقم الهاتف';
+  static const String forgotPassword = 'نسيت كلمة المرور؟';
+  static const String noAccount = 'ليس لديك حساب؟';
+  static const String haveAccount = 'لديك حساب بالفعل؟';
   static const String username = 'اسم المستخدم';
   static const String phone = 'رقم الهاتف';
   static const String university = 'الجامعة';
@@ -54,6 +58,7 @@ abstract class AppStrings {
   static const String searchHint = 'ابحث عن مهارة...';
   static const String categories = 'التصنيفات';
   static const String featuredSkills = 'مهارات مميزة';
+  static const String seeAll = 'عرض الكل';
   static const String newSkills = 'مهارات جديدة';
   static const String topTeachers = 'أفضل المعلمين';
   static const String seeAll = 'عرض الكل';
@@ -128,6 +133,10 @@ abstract class AppStrings {
   static const String hours = 'ساعات';
   static const String hour = 'ساعة';
   static const String buyHours = 'شراء ساعات';
+
+  // Messages
+  static const String messages = 'الرسائل';
+  static const String typeMessage = 'اكتب رسالة...';
   static const String transactions = 'العمليات';
   static const String earned = 'مكتسب';
   static const String spent = 'مصروف';
@@ -179,6 +188,7 @@ abstract class AppStrings {
   static const String error = 'حدث خطأ';
   static const String retry = 'إعادة المحاولة';
   static const String noData = 'لا توجد بيانات';
+  static const String success = 'تمت العملية بنجاح';
   static const String noResults = 'لا توجد نتائج';
   static const String success = 'تمت العملية بنجاح';
   static const String yes = 'نعم';

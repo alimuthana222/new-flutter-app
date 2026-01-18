@@ -10,6 +10,8 @@ class CustomButton extends StatelessWidget {
   final Color? backgroundColor;
   final Color? textColor;
   final double? width;
+  final double height;
+  final double borderRadius;
   final double? height;
 
   const CustomButton({
@@ -22,11 +24,35 @@ class CustomButton extends StatelessWidget {
     this.backgroundColor,
     this.textColor,
     this.width,
+    this.height = 56,
+    this.borderRadius = 14,
     this.height,
   });
 
   @override
   Widget build(BuildContext context) {
+    final buttonColor = backgroundColor ?? AppColors.primary;
+    final buttonTextColor = textColor ?? Colors.white;
+
+    if (isOutlined) {
+      return SizedBox(
+        width: width,
+        height: height,
+        child: OutlinedButton(
+          onPressed: isLoading ? null : onPressed,
+          style: OutlinedButton.styleFrom(
+            side: BorderSide(color: buttonColor, width: 1.5),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(borderRadius),
+            ),
+          ),
+          child: isLoading
+              ? SizedBox(
+                  height: 20,
+                  width: 20,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    valueColor: AlwaysStoppedAnimation<Color>(buttonColor),
     if (isOutlined) {
       return SizedBox(
         width: width ?? double.infinity,
@@ -63,6 +89,24 @@ class CustomButton extends StatelessWidget {
     }
 
     return SizedBox(
+      width: width,
+      height: height,
+      child: ElevatedButton(
+        onPressed: isLoading ? null : onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: buttonColor,
+          foregroundColor: buttonTextColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius),
+          ),
+        ),
+        child: isLoading
+            ? SizedBox(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                  valueColor: AlwaysStoppedAnimation<Color>(buttonTextColor),
       width: width ?? double.infinity,
       height: height ?? 56,
       child: ElevatedButton(
