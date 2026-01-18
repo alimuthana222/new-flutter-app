@@ -32,6 +32,9 @@ void main() async {
   // Initialize dependencies
   await initDependencies();
 
+  // Initialize connectivity monitoring
+  await getIt<ConnectivityService>().initialize();
+
   // Initialize notifications
   await getIt<NotificationService>().initialize();
 

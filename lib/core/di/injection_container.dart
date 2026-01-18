@@ -32,12 +32,16 @@ Future<void> init() async {
       secureStorage: sl(),
     ),
   );
-  // getIt.registerLazySingleton<SkillsRepository>(() => SkillsRepositoryImpl(getIt()));
-  // ... add more repositories
+  
+  // TODO: Add more repositories here as you implement features
+  // Example:
+  // sl.registerLazySingleton<SkillsRepository>(
+  //   () => SkillsRepositoryImpl(supabaseService: sl()),
+  // );
 
-  // BLoCs
-  // getIt.registerFactory(() => SkillsBloc(getIt()));
-  // ... add more blocs
+  // TODO: Add more BLoCs here as you implement features
+  // Example:
+  // sl.registerFactory(() => SkillsBloc(repository: sl()));
 
   // External
   final sharedPreferences = await SharedPreferences.getInstance();

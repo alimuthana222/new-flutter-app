@@ -23,13 +23,15 @@ INSERT INTO hour_packages (hours_amount, price_iqd, discount_percentage, sort_or
 (10, 35000, 30, 4);
 
 -- Payment Methods (Update with your actual account info)
+-- IMPORTANT: These are placeholder values. You MUST replace them with your actual payment details
+-- before running this seed data in production. Do not deploy with these dummy values.
 INSERT INTO payment_methods (name_ar, name_en, type, account_number, account_holder_name, instructions_ar, sort_order) VALUES
 (
     'زين كاش',
     'ZainCash',
     'zaincash',
-    '07XXXXXXXXX',  -- TODO: Replace with your ZainCash number
-    'اسم صاحب الحساب',  -- TODO: Replace with your name
+    '07XXXXXXXXX',  -- REQUIRED: Replace with your actual ZainCash number
+    'اسم صاحب الحساب',  -- REQUIRED: Replace with your actual name
     'افتح تطبيق زين كاش > تحويل أموال > أدخل الرقم > أدخل المبلغ > اكتب رقم الطلب في الملاحظات',
     1
 ),
@@ -37,8 +39,8 @@ INSERT INTO payment_methods (name_ar, name_en, type, account_number, account_hol
     'كي كارد',
     'Ki Card',
     'kicard',
-    'XXXXXXXXXXXXXXXX',  -- TODO: Replace with your Ki Card number
-    'اسم صاحب الحساب',  -- TODO: Replace with your name
+    'XXXXXXXXXXXXXXXX',  -- REQUIRED: Replace with your actual Ki Card number
+    'اسم صاحب الحساب',  -- REQUIRED: Replace with your actual name
     'افتح تطبيق كي كارد > تحويل > أدخل رقم البطاقة > أدخل المبلغ > اكتب رقم الطلب في الملاحظات',
     2
 );
