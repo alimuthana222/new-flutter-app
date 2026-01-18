@@ -61,8 +61,10 @@ abstract class AppStrings {
   static const String seeAll = 'عرض الكل';
   static const String newSkills = 'مهارات جديدة';
   static const String topTeachers = 'أفضل المعلمين';
-  static const String seeAll = 'عرض الكل';
   static const String welcome = 'أهلاً';
+  static const String greeting = 'أهلاً،';
+  static const String exploreSkills = 'استكشف المهارات';
+  static const String popularSkills = 'مهارات شائعة';
 
   // Categories
   static const String programming = 'برمجة وتطوير';
@@ -89,6 +91,25 @@ abstract class AppStrings {
   static const String paidSession = 'جلسة مدفوعة';
   static const String sessionDuration = 'مدة الجلسة';
   static const String availability = 'أوقات التوفر';
+  static const String skillDetails = 'تفاصيل المهارة';
+  static const String description = 'الوصف';
+  static const String category = 'التصنيف';
+  static const String price = 'السعر';
+  static const String perHour = 'للساعة';
+  static const String minDuration = 'الحد الأدنى للمدة';
+  static const String maxDuration = 'الحد الأقصى للمدة';
+  static const String minutes = 'دقيقة';
+  static const String skillInfo = 'معلومات المهارة';
+  static const String teacherInfo = 'معلومات المعلم';
+  static const String reviewsAndRatings = 'التقييمات والمراجعات';
+  static const String noSkills = 'لا توجد مهارات';
+  static const String addYourFirstSkill = 'أضف مهارتك الأولى';
+  static const String deleteSkill = 'حذف المهارة';
+  static const String deleteSkillConfirm = 'هل أنت متأكد من حذف هذه المهارة؟';
+  static const String skillRequired = 'عنوان المهارة مطلوب';
+  static const String descriptionRequired = 'الوصف مطلوب';
+  static const String categoryRequired = 'التصنيف مطلوب';
+  static const String share = 'مشاركة';
 
   // Booking
   static const String bookSession = 'حجز جلسة';
@@ -106,6 +127,25 @@ abstract class AppStrings {
   static const String cancelBooking = 'إلغاء الحجز';
   static const String startSession = 'بدء الجلسة';
   static const String endSession = 'إنهاء الجلسة';
+  static const String sessionType = 'نوع الجلسة';
+  static const String timeExchange = 'تبادل بالوقت';
+  static const String bookingDetails = 'تفاصيل الحجز';
+  static const String duration = 'المدة';
+  static const String totalCost = 'التكلفة الإجمالية';
+  static const String noteToTeacher = 'ملاحظة للمعلم';
+  static const String noteToLearner = 'ملاحظة للمتعلم';
+  static const String availableTimeSlots = 'الأوقات المتاحة';
+  static const String noAvailableSlots = 'لا توجد أوقات متاحة';
+  static const String teacher = 'المعلم';
+  static const String learner = 'المتعلم';
+  static const String acceptBooking = 'قبول الحجز';
+  static const String rejectBooking = 'رفض الحجز';
+  static const String cancelBookingConfirm = 'هل أنت متأكد من إلغاء الحجز؟';
+  static const String endSessionConfirm = 'هل أنت متأكد من إنهاء الجلسة؟';
+  static const String sessionTimer = 'مؤقت الجلسة';
+  static const String videoCall = 'مكالمة فيديو';
+  static const String enterMeetLink = 'أدخل رابط Google Meet';
+  static const String meetLink = 'رابط المكالمة';
 
   // Chat
   static const String messages = 'الرسائل';
@@ -126,6 +166,13 @@ abstract class AppStrings {
   static const String rating = 'التقييم';
   static const String reviews = 'التقييمات';
   static const String memberSince = 'عضو منذ';
+  static const String hoursEarned = 'ساعات مكتسبة';
+  static const String hoursSpent = 'ساعات مصروفة';
+  static const String profilePicture = 'صورة الملف الشخصي';
+  static const String changePicture = 'تغيير الصورة';
+  static const String updateProfile = 'تحديث الملف';
+  static const String userProfile = 'الملف الشخصي للمستخدم';
+  static const String viewProfile = 'عرض الملف الشخصي';
 
   // Time Bank
   static const String wallet = 'المحفظة';
@@ -134,14 +181,20 @@ abstract class AppStrings {
   static const String hour = 'ساعة';
   static const String buyHours = 'شراء ساعات';
 
-  // Messages
-  static const String messages = 'الرسائل';
+  // Messages (duplicate key merged)
   static const String typeMessage = 'اكتب رسالة...';
+  static const String conversations = 'المحادثات';
+  static const String noConversations = 'لا توجد محادثات';
+  static const String searchConversations = 'بحث في المحادثات';
+  
+  // Time Bank
   static const String transactions = 'العمليات';
   static const String earned = 'مكتسب';
   static const String spent = 'مصروف';
   static const String purchased = 'مشترى';
   static const String welcomeBonus = 'رصيد ترحيبي';
+  static const String recentTransactions = 'العمليات الأخيرة';
+  static const String viewAllTransactions = 'عرض جميع العمليات';
 
   // Payment
   static const String selectPackage = 'اختر الباقة';
@@ -152,15 +205,42 @@ abstract class AppStrings {
   static const String orderNumber = 'رقم الطلب';
   static const String pendingReview = 'بانتظار المراجعة';
   static const String paymentInstructions = 'تعليمات الدفع';
+  static const String orderSummary = 'ملخص الطلب';
+  static const String copyOrderNumber = 'نسخ رقم الطلب';
+  static const String accountNumber = 'رقم الحساب';
+  static const String accountHolder = 'اسم صاحب الحساب';
+  static const String amountToTransfer = 'المبلغ المطلوب';
+  static const String importantNote = 'ملاحظة مهمة';
+  static const String writeOrderNumberNote = 'اكتب رقم الطلب في ملاحظات التحويل';
+  static const String senderInfo = 'معلومات المرسل';
+  static const String senderName = 'اسم المرسل';
+  static const String senderPhone = 'رقم هاتف المرسل';
+  static const String submitPayment = 'إرسال الطلب';
+  static const String reviewWithin24Hours = 'سيتم مراجعة طلبك خلال 24 ساعة';
+  static const String discount = 'خصم';
+  static const String currentBalance = 'الرصيد الحالي';
 
   // Reviews
   static const String addReview = 'إضافة تقييم';
   static const String writeReview = 'اكتب تقييمك';
   static const String rateExperience = 'قيّم تجربتك';
+  static const String communication = 'التواصل';
+  static const String knowledge = 'المعرفة';
+  static const String punctuality = 'الالتزام بالوقت';
+  static const String sessionSummary = 'ملخص الجلسة';
+  static const String myReviews = 'تقييماتي';
 
   // Notifications
   static const String notifications = 'الإشعارات';
   static const String noNotifications = 'لا توجد إشعارات';
+  static const String markAllAsRead = 'تمييز الكل كمقروء';
+  static const String bookingRequest = 'طلب جلسة جديد';
+  static const String bookingAccepted = 'تم قبول طلب جلستك';
+  static const String bookingRejected = 'تم رفض طلب جلستك';
+  static const String sessionReminder = 'تذكير بالجلسة';
+  static const String newMessage = 'رسالة جديدة';
+  static const String newReview = 'تقييم جديد';
+  static const String hoursAdded = 'تمت إضافة ساعات لرصيدك';
 
   // Settings
   static const String language = 'اللغة';
@@ -171,6 +251,9 @@ abstract class AppStrings {
   static const String rateApp = 'قيّم التطبيق';
   static const String shareApp = 'شارك التطبيق';
   static const String deleteAccount = 'حذف الحساب';
+  static const String deleteAccountConfirm = 'هل أنت متأكد من حذف حسابك؟ هذا الإجراء لا يمكن التراجع عنه';
+  static const String version = 'الإصدار';
+  static const String arabicOnly = 'العربية فقط حالياً';
 
   // General
   static const String save = 'حفظ';
