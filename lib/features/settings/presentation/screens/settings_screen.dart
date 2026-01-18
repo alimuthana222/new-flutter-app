@@ -50,7 +50,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               value: _darkModeEnabled,
               onChanged: (value) {
                 setState(() => _darkModeEnabled = value);
-                // TODO: Implement dark mode
+              // TODO(feature): Implement dark mode theme switching - #issue-number
               },
             ),
             onTap: null,
