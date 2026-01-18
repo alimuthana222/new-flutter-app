@@ -6,12 +6,15 @@ class OnboardingPage extends StatelessWidget {
   final String title;
   final String description;
   final String icon;
+  final IconData icon;
+  final Color color;
 
   const OnboardingPage({
     super.key,
     required this.title,
     required this.description,
     required this.icon,
+    required this.color,
   });
 
   @override
@@ -153,6 +156,25 @@ class OnboardingPage extends StatelessWidget {
           
           const SizedBox(height: 60),
           
+          const Spacer(),
+          
+          // Icon
+          Container(
+            width: 200,
+            height: 200,
+            decoration: BoxDecoration(
+              color: color.withOpacity(0.1),
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              icon,
+              size: 100,
+              color: color,
+            ),
+          ),
+
+          const SizedBox(height: 48),
+
           // Title
           Text(
             title,
@@ -175,6 +197,14 @@ class OnboardingPage extends StatelessWidget {
           
           const SizedBox(height: 16),
           
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  color: AppColors.textPrimary,
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+
+          const SizedBox(height: 16),
+
           // Description
           Text(
             description,
@@ -195,6 +225,13 @@ class OnboardingPage extends StatelessWidget {
                 end: 0,
                 curve: Curves.easeOut,
               ),
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  color: AppColors.textSecondary,
+                  height: 1.5,
+                ),
+          ),
+
+          const Spacer(),
         ],
       ),
     );

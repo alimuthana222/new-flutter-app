@@ -27,6 +27,28 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.backgroundLight,
       
       // Typography
+      colorScheme: ColorScheme.light(
+        primary: AppColors.primary,
+        onPrimary: Colors.white,
+        primaryContainer: AppColors.primaryContainer,
+        onPrimaryContainer: AppColors.primaryDark,
+        secondary: AppColors.secondary,
+        onSecondary: Colors.white,
+        secondaryContainer: AppColors.secondaryContainer,
+        onSecondaryContainer: AppColors.secondaryDark,
+        error: AppColors.error,
+        onError: Colors.white,
+        errorContainer: AppColors.errorLight,
+        onErrorContainer: AppColors.error,
+        background: AppColors.backgroundLight,
+        onBackground: AppColors.textPrimary,
+        surface: AppColors.surfaceLight,
+        onSurface: AppColors.textPrimary,
+        surfaceVariant: AppColors.dividerLight,
+        onSurfaceVariant: AppColors.textSecondary,
+      ),
+      
+      // Typography with Cairo font
       textTheme: GoogleFonts.cairoTextTheme().copyWith(
         displayLarge: GoogleFonts.cairo(
           fontSize: 57,
@@ -51,6 +73,7 @@ class AppTheme {
         headlineMedium: GoogleFonts.cairo(
           fontSize: 28,
           fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w600,
           color: AppColors.textPrimary,
         ),
         headlineSmall: GoogleFonts.cairo(
@@ -119,6 +142,32 @@ class AppTheme {
       ),
       
       // ElevatedButton Theme
+          color: AppColors.textSecondary,
+        ),
+        labelSmall: GoogleFonts.cairo(
+          fontSize: 11,
+          fontWeight: FontWeight.w600,
+          color: AppColors.textSecondary,
+        ),
+      ),
+
+      // App Bar Theme
+      appBarTheme: AppBarTheme(
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: AppColors.surfaceLight,
+        foregroundColor: AppColors.textPrimary,
+        titleTextStyle: GoogleFonts.cairo(
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+          color: AppColors.textPrimary,
+        ),
+        iconTheme: const IconThemeData(
+          color: AppColors.textPrimary,
+        ),
+      ),
+
+      // Elevated Button Theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
@@ -127,6 +176,7 @@ class AppTheme {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
           ),
           textStyle: GoogleFonts.cairo(
             fontSize: 16,
@@ -136,6 +186,8 @@ class AppTheme {
       ),
       
       // OutlinedButton Theme
+
+      // Outlined Button Theme
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: AppColors.primary,
@@ -143,6 +195,7 @@ class AppTheme {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
           ),
           textStyle: GoogleFonts.cairo(
             fontSize: 16,
@@ -152,6 +205,8 @@ class AppTheme {
       ),
       
       // TextButton Theme
+
+      // Text Button Theme
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           foregroundColor: AppColors.primary,
@@ -167,6 +222,8 @@ class AppTheme {
       ),
       
       // InputDecoration Theme
+
+      // Input Decoration Theme
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.surfaceLight,
@@ -189,6 +246,23 @@ class AppTheme {
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.dividerLight),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.dividerLight),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.primary, width: 2),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.error),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: AppColors.error, width: 2),
         ),
         labelStyle: GoogleFonts.cairo(
@@ -209,6 +283,11 @@ class AppTheme {
       cardTheme: CardTheme(
         color: AppColors.cardLight,
         elevation: 0,
+
+      // Card Theme
+      cardTheme: CardTheme(
+        elevation: 0,
+        color: AppColors.cardLight,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
           side: const BorderSide(color: AppColors.dividerLight, width: 1),
@@ -242,6 +321,23 @@ class AppTheme {
         elevation: 8,
       ),
       
+        margin: const EdgeInsets.symmetric(vertical: 8),
+      ),
+
+      // Chip Theme
+      chipTheme: ChipThemeData(
+        backgroundColor: AppColors.primaryContainer,
+        deleteIconColor: AppColors.primary,
+        labelStyle: GoogleFonts.cairo(
+          fontSize: 14,
+          color: AppColors.primary,
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+
       // Dialog Theme
       dialogTheme: DialogTheme(
         backgroundColor: AppColors.surfaceLight,
@@ -252,6 +348,11 @@ class AppTheme {
         titleTextStyle: GoogleFonts.cairo(
           fontSize: 20,
           fontWeight: FontWeight.bold,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        titleTextStyle: GoogleFonts.cairo(
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
           color: AppColors.textPrimary,
         ),
         contentTextStyle: GoogleFonts.cairo(
@@ -283,12 +384,48 @@ class AppTheme {
       ),
       
       // FloatingActionButton Theme
+
+      // Bottom Navigation Bar Theme
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: AppColors.surfaceLight,
+        selectedItemColor: AppColors.primary,
+        unselectedItemColor: AppColors.textTertiary,
+        selectedLabelStyle: GoogleFonts.cairo(
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+        ),
+        unselectedLabelStyle: GoogleFonts.cairo(
+          fontSize: 12,
+          fontWeight: FontWeight.normal,
+        ),
+        type: BottomNavigationBarType.fixed,
+        elevation: 8,
+      ),
+
+      // Floating Action Button Theme
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
         elevation: 4,
         shape: CircleBorder(),
       ),
+      ),
+
+      // Divider Theme
+      dividerTheme: const DividerThemeData(
+        color: AppColors.dividerLight,
+        thickness: 1,
+        space: 1,
+      ),
+
+      // Icon Theme
+      iconTheme: const IconThemeData(
+        color: AppColors.textPrimary,
+        size: 24,
+      ),
+
+      // Scaffold Background Color
+      scaffoldBackgroundColor: AppColors.backgroundLight,
     );
   }
 }

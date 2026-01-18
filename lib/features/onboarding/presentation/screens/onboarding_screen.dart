@@ -4,6 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_strings.dart';
+import '../../../../core/constants/app_colors.dart';
+import '../../../../core/constants/app_strings.dart';
+import '../../../../core/router/app_router.dart';
 import '../widgets/onboarding_page.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -22,11 +25,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       'title': AppStrings.onboarding1Title,
       'description': AppStrings.onboarding1Desc,
       'icon': '📚',
+  final List<Map<String, dynamic>> _pages = [
+    {
+      'title': AppStrings.onboarding1Title,
+      'description': AppStrings.onboarding1Desc,
+      'icon': Icons.school_outlined,
+      'color': AppColors.primary,
     },
     {
       'title': AppStrings.onboarding2Title,
       'description': AppStrings.onboarding2Desc,
       'icon': '🤝',
+      'icon': Icons.share_outlined,
+      'color': AppColors.secondary,
     },
     {
       'title': AppStrings.onboarding3Title,
@@ -34,6 +45,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       'icon': '⏰',
     },
   ];
+
+      'icon': Icons.access_time_outlined,
+      'color': AppColors.accent,
+    },
+  ];
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   void _onPageChanged(int page) {
     setState(() {
@@ -64,6 +86,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void dispose() {
     _pageController.dispose();
     super.dispose();
+      _finish();
+    }
+  }
+
+  void _finish() {
+    context.go(AppRouter.login);
   }
 
   @override
@@ -88,6 +116,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
             
             // Pages
+            // Skip button
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  if (_currentPage < _pages.length - 1)
+                    TextButton(
+                      onPressed: _finish,
+                      child: const Text(AppStrings.skip),
+                    ),
+                ],
+              ),
+            ),
+
+            // PageView
             Expanded(
               child: PageView.builder(
                 controller: _pageController,
@@ -106,6 +150,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             // Page Indicators
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 24.0),
+                    title: _pages[index]['title'],
+                    description: _pages[index]['description'],
+                    icon: _pages[index]['icon'],
+                    color: _pages[index]['color'],
+                  ).animate().fadeIn(duration: 400.ms);
+                },
+              ),
+            ),
+
+            // Page indicators
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
@@ -113,6 +169,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   (index) => Container(
                     margin: const EdgeInsets.symmetric(horizontal: 4),
                     width: _currentPage == index ? 24 : 8,
+                  (index) => AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    width: _currentPage == index ? 32 : 8,
                     height: 8,
                     decoration: BoxDecoration(
                       color: _currentPage == index
@@ -134,6 +194,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
             
             // Next Button
+                  ),
+                ),
+              ),
+            ),
+
+            // Next/Start button
             Padding(
               padding: const EdgeInsets.all(24.0),
               child: SizedBox(
